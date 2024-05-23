@@ -1,18 +1,37 @@
-.users-inputs button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px; /* increase font size */
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 0; /* remove margin from the right side of the button */
-    padding: 15px 30px; /* increase padding */
-    width: auto; /* adjust width as needed */
+.button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px; /* increase font size */
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 0; /* remove margin from the right side of the button */
+  padding: 15px 30px; /* increase padding */
+  width: auto; /* adjust width as needed */
 }
 
-.users-inputs button:hover {
-    background-color: #45a049;
+.button:hover {
+  background-color: #45a049;
+}
+
+.button-disabled {
+  background-color: #565956;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px; /* increase font size */
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 0; /* remove margin from the right side of the button */
+  padding: 15px 30px; /* increase padding */
+  width: auto; /* adjust width as needed */
+}
+
+.button-disabled:hover {
+  background-color: #353635;
 }
