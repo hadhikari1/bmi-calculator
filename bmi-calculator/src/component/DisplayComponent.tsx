@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GaugeChart from "react-gauge-chart";
+import "../css/DisplayComponent.css";
 
 export default function DisplayComponent(props: { bmi: number }) {
   const [percent, setPercent] = useState(0);
@@ -9,35 +10,51 @@ export default function DisplayComponent(props: { bmi: number }) {
       return;
     }
     if (bmi < 18.5) {
-      setPercent(.20);
-      return `Your BMI is ${bmi} , you are underweight.`;
+      return `BMI: ${bmi}`;
     }
     if (bmi >= 18.5 && bmi < 25) {
-      setPercent(.40);
-      return `Your BMI is ${bmi}, you have a normal weight.`;
+      return `BMI: ${bmi}`;
     }
 
     if (bmi >= 25 && bmi < 30) {
-      setPercent(.60);
-      return `Your BMI is ${bmi}, you are slightly overweight.`;
+      return `BMI: ${bmi}`;
     }
     if (bmi >= 30 && bmi < 35) {
-      setPercent(.80);
-      return `Your BMI is ${bmi}, you are obese.`;
+      return `BMI: ${bmi}`;
     } else {
-      setPercent(1);
-      return `Your BMI  ${bmi}, you are clinically obese.`;
+      return `BMI: ${bmi}`;
     }
+  }
+
+  const gageCalc = () => {
+    const bmi = props.bmi;
+    var result = 0;
+    if (bmi >= 16 && bmi <= 18.5) {
+      result = getPercentage(bmi, 16, 18.5, 0);
+    } else if (bmi > 18.5 && bmi < 25) {
+      result = getPercentage(bmi, 18.5, 25, 0.33);
+    } else if (bmi >= 25 && bmi <= 30) {
+      result = getPercentage(bmi, 25, 30, 0.66);
+    }
+    return result;
+  };
+
+  function getPercentage(bmi:number, lowerBound:number, upperBound:number, segmentAdjustment:number){
+    return (
+      (bmi - lowerBound) / (upperBound - lowerBound) / 3 + segmentAdjustment
+    );
   }
 
   return (
     <div className="bmi-indicator">
+      <h1>BMI Indicator</h1>
       <GaugeChart
         id="gauge-chart2"
         nrOfLevels={3}
-        percent={percent}
+        percent={gageCalc()}
         formatTextValue={(value: string) => calculation(props.bmi)?? ''}
         textColor="black"
+        colors={["#FFFF00", "#228B22", "#FF0000"]}
       />
     </div>
   );

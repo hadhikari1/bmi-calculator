@@ -1,0 +1,6 @@
+.bmi-indicator {
+    width: 50%; /* adjust this to change the width of the div */
+    height: auto; /* adjust this to change the height of the div */
+    margin: auto; /* centers the div on the page */
+    text-align: center; /* centers the text within the div */
+}

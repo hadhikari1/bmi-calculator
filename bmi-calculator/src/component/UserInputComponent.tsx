@@ -51,6 +51,8 @@ export default function UserInputComponent() {
     return Number(bmi.toFixed(1));
   };
 
+  
+
   return (
     <>
       
